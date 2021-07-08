@@ -4,5 +4,3 @@ export default (question) => {
   const userName = readlineSync.question(question);
   console.log(`Hi ${userName}!`);
 };
-
-var name = 'hello'!
