@@ -3,6 +3,3 @@ import getUserName from '../src/cli.js';
 
 console.log('Welcome to the Brain Games!');
 getUserName('May I have your name? ');
-
-const name = 'uur';
-console.log(name);
