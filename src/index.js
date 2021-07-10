@@ -22,6 +22,8 @@ const aboutGame = (gameName) => {
     case 'calc':
       console.log('What is the result of the expression?');
       break;
+    default:
+      break;
   }
 };
 
@@ -48,6 +50,8 @@ const calcQuestion = () => {
     case 2:
       rightAnswer = firstNum * secodNum;
       break;
+    default:
+      break;
   }
   console.log(`${firstNum} ${operators[operatorIndex]} ${secodNum}`);
 };
@@ -68,14 +72,10 @@ const failAnswer = () => {
 };
 
 const checkAnswer = (gameName) => {
-  switch (gameName) {
-    case 'even':
-      rightAnswer === lastUserAnswer ? correctAnswer() : failAnswer();
-      break;
-    case 'calc':
-      rightAnswer === +lastUserAnswer ? correctAnswer() : failAnswer();
-      break;
+  if (gameName === 'calc') {
+    lastUserAnswer = +lastUserAnswer;
   }
+  rightAnswer === lastUserAnswer ? correctAnswer() : failAnswer();
 };
 
 const resetGame = () => {
@@ -96,6 +96,8 @@ const game = (gameName) => {
         break;
       case 'calc':
         calcQuestion();
+        break;
+      default:
         break;
     }
 
