@@ -75,7 +75,12 @@ const checkAnswer = (gameName) => {
   if (gameName === 'calc') {
     lastUserAnswer = +lastUserAnswer;
   }
-  rightAnswer === lastUserAnswer ? correctAnswer() : failAnswer();
+
+  if (rightAnswer === lastUserAnswer) {
+    correctAnswer();
+  } else {
+    failAnswer();
+  }
 };
 
 const resetGame = () => {
