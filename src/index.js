@@ -28,6 +28,9 @@ const aboutGame = (gameName) => {
     case 'progression':
       console.log('What number is missing in the progression?');
       break;
+    case 'prime':
+      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+      break;
     default:
       break;
   }
@@ -69,7 +72,7 @@ const nodQuestion = () => {
   const firstNum = getRandomNumber(100);
   const secodNum = getRandomNumber(100);
 
-  const gcd = function (a, b) {
+  const gcd = (a, b) => {
     if (!b) {
       return a;
     }
@@ -101,6 +104,20 @@ const progressionQuestion = () => {
   console.log(result);
 };
 
+// Простое ли число
+const primeQuestion = () => {
+  const num = getRandomNumber(20);
+  const stringFromNum = String(num);
+
+  if (stringFromNum.length > 1) {
+    rightAnswer = 'no';
+  } else {
+    rightAnswer = 'yes';
+  }
+
+  console.log(num);
+};
+
 const answerUser = () => {
   lastUserAnswer = readlineSync.question('Your answer: ');
 };
@@ -117,6 +134,7 @@ const failAnswer = () => {
 };
 
 const checkAnswer = (gameName) => {
+  // для получения числа из строки
   if (gameName === 'calc' || gameName === 'nod' || gameName === 'progression') {
     lastUserAnswer = +lastUserAnswer;
   }
@@ -128,6 +146,7 @@ const checkAnswer = (gameName) => {
   }
 };
 
+// сбрасываем значения
 const resetGame = () => {
   countRounds = 3;
   rightAnswer = null;
@@ -153,10 +172,13 @@ const game = (gameName) => {
       case 'progression':
         progressionQuestion();
         break;
+      case 'prime':
+        primeQuestion();
+        break;
       default:
         break;
     }
-    // console.log('rightAnswer-- ', rightAnswer);
+
     answerUser();
     checkAnswer(gameName);
   } while (countRounds > 0);
