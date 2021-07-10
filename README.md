@@ -11,3 +11,7 @@ https://asciinema.org/a/SGw8x4XxjYSY59hmhwMw501QD
 NOD game
 https://asciinema.org/a/uON6hFmPiCwJghRurP2mMAUUW
 
+progression game
+https://asciinema.org/a/NYfXLebMWpNEMHuRnQlwGmMWu
+
+

@@ -25,11 +25,15 @@ const aboutGame = (gameName) => {
     case 'nod':
       console.log('Find the greatest common divisor of given numbers.');
       break;
+    case 'progression':
+      console.log('What number is missing in the progression?');
+      break;
     default:
       break;
   }
 };
 
+// четное число
 const evenQuestion = () => {
   const randomNum = getRandomNumber(100);
   const isEven = randomNum % 2 === 0;
@@ -38,6 +42,7 @@ const evenQuestion = () => {
   console.log(`Question: ${randomNum}`);
 };
 
+// калькулятор
 const calcQuestion = () => {
   const firstNum = getRandomNumber(20);
   const secodNum = getRandomNumber(10);
@@ -59,6 +64,7 @@ const calcQuestion = () => {
   console.log(`${firstNum} ${operators[operatorIndex]} ${secodNum}`);
 };
 
+// общий знаменатель
 const nodQuestion = () => {
   const firstNum = getRandomNumber(100);
   const secodNum = getRandomNumber(100);
@@ -72,6 +78,27 @@ const nodQuestion = () => {
 
   rightAnswer = gcd(firstNum, secodNum);
   console.log(firstNum, ' ', secodNum);
+};
+
+// прогрессия
+const progressionQuestion = () => {
+  const progressionLength = 11;
+  const firstNum = getRandomNumber(10);
+  const deltaNum = getRandomNumber(3);
+  const emptyNum = getRandomNumber(10);
+
+  let result = '';
+  for (let i = 1; i < progressionLength; i += 1) {
+    if (i === emptyNum) {
+      result += '.. ';
+    } else {
+      result += firstNum + deltaNum * i;
+      result += ' ';
+    }
+  }
+
+  rightAnswer = firstNum + deltaNum * emptyNum;
+  console.log(result);
 };
 
 const answerUser = () => {
@@ -90,7 +117,7 @@ const failAnswer = () => {
 };
 
 const checkAnswer = (gameName) => {
-  if (gameName === 'calc' || gameName === 'nod') {
+  if (gameName === 'calc' || gameName === 'nod' || gameName === 'progression') {
     lastUserAnswer = +lastUserAnswer;
   }
 
@@ -122,6 +149,9 @@ const game = (gameName) => {
         break;
       case 'nod':
         nodQuestion();
+        break;
+      case 'progression':
+        progressionQuestion();
         break;
       default:
         break;
