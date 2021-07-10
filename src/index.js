@@ -22,6 +22,9 @@ const aboutGame = (gameName) => {
     case 'calc':
       console.log('What is the result of the expression?');
       break;
+    case 'nod':
+      console.log('Find the greatest common divisor of given numbers.');
+      break;
     default:
       break;
   }
@@ -56,6 +59,21 @@ const calcQuestion = () => {
   console.log(`${firstNum} ${operators[operatorIndex]} ${secodNum}`);
 };
 
+const nodQuestion = () => {
+  const firstNum = getRandomNumber(100);
+  const secodNum = getRandomNumber(100);
+
+  const gcd = function (a, b) {
+    if (!b) {
+      return a;
+    }
+    return gcd(b, a % b);
+  };
+
+  rightAnswer = gcd(firstNum, secodNum);
+  console.log(firstNum, ' ', secodNum);
+};
+
 const answerUser = () => {
   lastUserAnswer = readlineSync.question('Your answer: ');
 };
@@ -72,7 +90,7 @@ const failAnswer = () => {
 };
 
 const checkAnswer = (gameName) => {
-  if (gameName === 'calc') {
+  if (gameName === 'calc' || gameName === 'nod') {
     lastUserAnswer = +lastUserAnswer;
   }
 
@@ -102,10 +120,12 @@ const game = (gameName) => {
       case 'calc':
         calcQuestion();
         break;
+      case 'nod':
+        nodQuestion();
+        break;
       default:
         break;
     }
-
     // console.log('rightAnswer-- ', rightAnswer);
     answerUser();
     checkAnswer(gameName);
