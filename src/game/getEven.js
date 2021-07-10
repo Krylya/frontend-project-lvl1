@@ -5,7 +5,7 @@ let countAnswers = 0;
 let lastAnswer = '';
 let userName = null;
 
-const getRandomNumber = () => Math.floor((Math.random() * 100) + 1);
+const getRandomNumber = (num) => Math.floor((Math.random() * num) + 1);
 
 const aboutGame = (text) => {
   console.log(text);
@@ -24,7 +24,7 @@ const failAnswer = (answer) => {
 };
 
 const question = () => {
-  const randomNum = getRandomNumber();
+  const randomNum = getRandomNumber(100);
   const isEven = randomNum % 2 === 0;
   console.log(`Question: ${randomNum}`);
 
