@@ -17,22 +17,40 @@ const calcGame = () => {
   };
 
   const getRightAnswer = () => {
+    let right = '';
+
     switch (operatorIndex) {
       case 0:
-        return String(firstNum + secodNum);
+        right = String(firstNum + secodNum);
         break;
       case 1:
-        return String(firstNum - secodNum);
+        right = String(firstNum - secodNum);
         break;
       case 2:
-        return String(firstNum * secodNum);
+        right = String(firstNum * secodNum);
         break;
       default:
         break;
     }
+
+    return right;
   };
 
   gameInit(aboutGame, getQuestion, getRightAnswer);
 };
 
 export default calcGame;
+
+// switch (operatorIndex) {
+//   case 0:
+//     return String(firstNum + secodNum);
+//     break;
+//   case 1:
+//     return String(firstNum - secodNum);
+//     break;
+//   case 2:
+//     return String(firstNum * secodNum);
+//     break;
+//   default:
+//     break;
+// }
