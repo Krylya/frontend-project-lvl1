@@ -16,7 +16,7 @@ const nodQuestion = () => {
   const getQuestion = () => {
     firstNum = getRandomNumber(100);
     secodNum = getRandomNumber(100);
-    console.log(`Question: ${firstNum}, ${secodNum}`);
+    console.log(`Question: ${firstNum} ${secodNum}`);
   };
 
   const getRightAnswer = () => {
