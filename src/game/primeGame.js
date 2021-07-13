@@ -12,7 +12,10 @@ const primeGame = () => {
   };
 
   const getRightAnswer = () => {
+    if (num === 1) return 'yes';
+
     let isSimply = true;
+
     for (let i = 2; i < num; i += 1) {
       if (num % i === 0) isSimply = false;
     }
