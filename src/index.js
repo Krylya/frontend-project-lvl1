@@ -23,7 +23,6 @@ const gameInit = (aboutGame, getQuestion, getRightAnswer) => {
   };
 
   const isFailAnswer = () => {
-    countRounds = 3;
     console.log(`'${lastUserAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.\n
      Let's try again, ${userName}`);
   };
@@ -31,9 +30,10 @@ const gameInit = (aboutGame, getQuestion, getRightAnswer) => {
   const checkAnswer = () => {
     if (rightAnswer === lastUserAnswer) {
       isCorrectAnswer();
-    } else {
-      isFailAnswer();
+      return true;
     }
+    isFailAnswer();
+    return false;
   };
 
   const play = () => {
@@ -44,10 +44,12 @@ const gameInit = (aboutGame, getQuestion, getRightAnswer) => {
       getQuestion();
       rightAnswer = getRightAnswer();
       getAnswerUser();
-      checkAnswer();
+      if (!checkAnswer()) break;
     } while (countRounds > 0);
 
-    console.log(`Congratulations, ${userName}!`);
+    if (countRounds === 0) {
+      console.log(`Congratulations, ${userName}!`);
+    }
   };
 
   play();
