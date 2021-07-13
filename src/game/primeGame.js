@@ -2,17 +2,22 @@ import { gameInit, getRandomNumber } from '../index.js';
 
 const primeGame = () => {
   const aboutGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  let stringFromNum = null;
+  //let stringFromNum = null;
+  let num = null;
 
   const getQuestion = () => {
-    const num = getRandomNumber(20);
-    stringFromNum = String(num);
+    num = getRandomNumber(20);
+    //stringFromNum = String(num);
     console.log(`Question: ${num}`);
   };
 
   const getRightAnswer = () => {
-    if (stringFromNum.length > 1) return 'no';
-    return 'yes';
+    let isSimply = true;
+    for (let i = 0; i < num, num -=1) {
+        if(num % i === 0) isSimply = false;
+    }
+    if (isSimply) return 'yes';
+    return 'no';
   };
 
   gameInit(aboutGame, getQuestion, getRightAnswer);
