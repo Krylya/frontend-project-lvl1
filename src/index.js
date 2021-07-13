@@ -24,7 +24,7 @@ const gameInit = (aboutGame, getQuestion, getRightAnswer) => {
 
   const isFailAnswer = () => {
     console.log(`'${lastUserAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.)`);
-    console.log(`Let's try again, ${userName}`);
+    console.log(`Let's try again, ${userName}!`);
   };
 
   const checkAnswer = () => {
