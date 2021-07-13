@@ -13,7 +13,7 @@ const primeGame = () => {
 
   const getRightAnswer = () => {
     let isSimply = true;
-    for (let i = num - 1; i < num; num -= 1) {
+    for (let i = 2; i < num; i += 1) {
       if (num % i === 0) isSimply = false;
     }
     if (isSimply) return 'yes';
