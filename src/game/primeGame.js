@@ -13,6 +13,7 @@ const primeGame = () => {
 
   const getRightAnswer = () => {
     if (num === 1) return 'yes';
+    if (num === 0) return 'no';
 
     let isSimply = true;
 
