@@ -10,7 +10,6 @@ const gameInit = (rules, game) => {
 
   do {
     if (!game()) {
-      console.log(`'${lastUserAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.)`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }

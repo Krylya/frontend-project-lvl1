@@ -1,16 +1,12 @@
-import gameInit from '../index.js';
-import getRandomNumber from '../utils.js';
+import readlineSync from 'readline-sync';
+import { getRandomNumber, checkAnswer } from '../utils.js';
+
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const primeGame = () => {
-  const aboutGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  // let stringFromNum = null;
-  let num = null;
-
-  const getQuestion = () => {
-    num = getRandomNumber(20);
-    // stringFromNum = String(num);
-    console.log(`Question: ${num}`);
-  };
+  const num = getRandomNumber(20);
+  console.log(`Question: ${num}`);
+  const userAnswer = readlineSync.question('Your answer: ');
 
   const getRightAnswer = () => {
     if (num === 1) return 'yes';
@@ -25,7 +21,9 @@ const primeGame = () => {
     return 'no';
   };
 
-  gameInit(aboutGame, getQuestion, getRightAnswer);
+  const rightAnswer = getRightAnswer();
+  const result = checkAnswer(rightAnswer, userAnswer);
+  return result;
 };
 
-export default primeGame;
+export { primeGame, rules };
