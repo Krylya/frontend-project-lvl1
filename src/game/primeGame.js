@@ -1,4 +1,5 @@
-import { gameInit, getRandomNumber } from '../index.js';
+import gameInit from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const primeGame = () => {
   const aboutGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';

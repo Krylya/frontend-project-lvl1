@@ -1,4 +1,5 @@
-import { gameInit, getRandomNumber } from '../index.js';
+import gameInit from '../index.js';
+import getRandomNumber from '../utils.js';
 
 // прогрессия
 const progressionGame = () => {
