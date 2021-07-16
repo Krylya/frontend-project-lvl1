@@ -23,11 +23,12 @@ const mathematicalOperation = (operation, operand1, operand2) => {
 
 // Проверка правильного ответа
 const checkAnswer = (rightAnswer, userAnswer, type = 'str') => {
+  let usaranswer = userAnswer;
   if (type === 'num') {
-    userAnswer = +userAnswer;
+    usaranswer = +userAnswer;
   }
 
-  if (userAnswer !== rightAnswer) {
+  if (usaranswer !== rightAnswer) {
     console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.)`);
     return false;
   }
