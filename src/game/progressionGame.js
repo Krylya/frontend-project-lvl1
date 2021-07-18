@@ -1,4 +1,5 @@
 import { getRandomNumber } from '../utils.js';
+import gameInit from '../index.js';
 
 const rules = 'What number is missing in the progression?';
 
@@ -19,10 +20,13 @@ const progressionGame = () => {
     }
   }
 
-  console.log(`Question: ${result}`);
-
+  const question = `Question: ${result}`;
   const rightAnswer = deltaNum * emptyNum + firstNum;
-  return String(rightAnswer);
+  return [question, String(rightAnswer)];
 };
 
-export { progressionGame, rules };
+const playGame = () => {
+  gameInit(rules, progressionGame);
+};
+
+export default playGame;

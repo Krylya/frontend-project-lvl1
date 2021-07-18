@@ -1,3 +1,4 @@
+import gameInit from '../index.js';
 import { getRandomNumber, mathematicalOperation } from '../utils.js';
 
 const rules = 'What is the result of the expression?';
@@ -8,10 +9,14 @@ const calcGame = () => {
   const secodNum = getRandomNumber(1, 10);
   const operationsIndex = getRandomNumber(0, 2);
 
-  console.log(`Question: ${firstNum} ${operations[operationsIndex]} ${secodNum}`);
-
+  const question = `Question: ${firstNum} ${operations[operationsIndex]} ${secodNum}`;
   const rightAnswer = mathematicalOperation(operations[operationsIndex], firstNum, secodNum);
-  return String(rightAnswer);
+
+  return [question, String(rightAnswer)];
 };
 
-export { calcGame, rules };
+const playGame = () => {
+  gameInit(rules, calcGame);
+};
+
+export default playGame;

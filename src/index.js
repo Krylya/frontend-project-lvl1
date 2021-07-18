@@ -10,22 +10,21 @@ const gameInit = (rules, game) => {
   console.log(rules);
 
   do {
-    const rightAnswer = game();
+    const [question, rightAnswer] = game();
+    console.log(question);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (rightAnswer === userAnswer) {
-      counter -= 1;
-      console.log('Correct!');
-    } else {
+    if (rightAnswer !== userAnswer) {
       console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.)`);
       console.log(`Let's try again, ${userName}!`);
-      break;
+      return;
     }
+
+    counter -= 1;
+    console.log('Correct!');
   } while (counter > 0);
 
-  if (counter === 0) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default gameInit;
