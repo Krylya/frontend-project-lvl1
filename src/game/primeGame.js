@@ -1,12 +1,10 @@
-import readlineSync from 'readline-sync';
-import { getRandomNumber, checkAnswer } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const primeGame = () => {
-  const num = getRandomNumber(20);
+  const num = getRandomNumber(1, 20);
   console.log(`Question: ${num}`);
-  const userAnswer = readlineSync.question('Your answer: ');
 
   const getRightAnswer = () => {
     if (num === 1) return 'yes';
@@ -22,8 +20,7 @@ const primeGame = () => {
   };
 
   const rightAnswer = getRightAnswer();
-  const result = checkAnswer(rightAnswer, userAnswer);
-  return result;
+  return rightAnswer;
 };
 
 export { primeGame, rules };

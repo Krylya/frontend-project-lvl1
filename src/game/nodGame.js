@@ -1,12 +1,11 @@
-import readlineSync from 'readline-sync';
-import { getRandomNumber, checkAnswer } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
 // общий знаменатель
 const nodGame = () => {
-  const firstNum = getRandomNumber(100);
-  const secodNum = getRandomNumber(100);
+  const firstNum = getRandomNumber(1, 100);
+  const secodNum = getRandomNumber(1, 100);
 
   const gcd = (a, b) => {
     if (!b) {
@@ -16,16 +15,11 @@ const nodGame = () => {
   };
 
   console.log(`Question: ${firstNum} ${secodNum}`);
-  const userAnswer = readlineSync.question('Your answer: ');
 
-  const getRightAnswer = () => {
-    const num = gcd(firstNum, secodNum);
-    return String(num);
-  };
+  const getRightAnswer = () => gcd(firstNum, secodNum);
 
   const rightAnswer = getRightAnswer();
-  const result = checkAnswer(rightAnswer, userAnswer);
-  return result;
+  return String(rightAnswer);
 };
 
 export { nodGame, rules };

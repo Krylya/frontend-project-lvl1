@@ -1,24 +1,29 @@
 import readlineSync from 'readline-sync';
 
-const gameInit = (rules, game) => {
-  let countRounds = 3;
-  let userName = '';
+const countRounds = 3;
 
-  userName = readlineSync.question('May I have your name? ');
+const gameInit = (rules, game) => {
+  let counter = countRounds;
+  const userName = readlineSync.question('May I have your name? ');
+
   console.log(`Hi ${userName}!`);
   console.log(rules);
 
   do {
-    if (!game()) {
+    const rightAnswer = game();
+    const userAnswer = readlineSync.question('Your answer: ');
+
+    if (rightAnswer === userAnswer) {
+      counter -= 1;
+      console.log('Correct!');
+    } else {
+      console.log(`'${userAnswer}' is wrong answer;(. Correct answer was '${rightAnswer}'.)`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }
+  } while (counter > 0);
 
-    countRounds -= 1;
-    console.log('Correct!');
-  } while (countRounds > 0);
-
-  if (countRounds === 0) {
+  if (counter === 0) {
     console.log(`Congratulations, ${userName}!`);
   }
 };
