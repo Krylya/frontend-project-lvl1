@@ -7,9 +7,6 @@ const primeGame = () => {
   const num = getRandomNumber(1, 20);
 
   const getRightAnswer = () => {
-    if (num === 1) return 'yes';
-    if (num === 0) return 'no';
-
     let isSimply = true;
 
     for (let i = 2; i < num; i += 1) {
