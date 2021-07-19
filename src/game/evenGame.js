@@ -1,15 +1,14 @@
 import gameInit from '../index.js';
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const isEven = (num) => num % 2 === 0;
+
 const evenGame = () => {
   const randomNum = getRandomNumber(1, 100);
-  const isEven = randomNum % 2 === 0;
-  const getRightAnswer = () => (isEven ? 'yes' : 'no');
-
   const question = `Question: ${randomNum}`;
-  const rightAnswer = getRightAnswer();
+  const rightAnswer = isEven(randomNum) ? 'yes' : 'no';
   return [question, rightAnswer];
 };
 

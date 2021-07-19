@@ -1,7 +1,25 @@
 import gameInit from '../index.js';
-import { getRandomNumber, mathematicalOperation } from '../utils.js';
+import getRandomNumber from '../utils.js';
 
 const rules = 'What is the result of the expression?';
+
+const calculate = (operation, operand1, operand2) => {
+  let result = '';
+  switch (operation) {
+    case '+':
+      result = operand1 + operand2;
+      break;
+    case '-':
+      result = operand1 - operand2;
+      break;
+    case '*':
+      result = operand1 * operand2;
+      break;
+    default:
+      break;
+  }
+  return result;
+};
 
 const calcGame = () => {
   const operations = ['+', '-', '*'];
@@ -10,7 +28,7 @@ const calcGame = () => {
   const operationsIndex = getRandomNumber(0, 2);
 
   const question = `Question: ${firstNum} ${operations[operationsIndex]} ${secodNum}`;
-  const rightAnswer = mathematicalOperation(operations[operationsIndex], firstNum, secodNum);
+  const rightAnswer = calculate(operations[operationsIndex], firstNum, secodNum);
 
   return [question, String(rightAnswer)];
 };

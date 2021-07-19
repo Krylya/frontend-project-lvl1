@@ -1,23 +1,19 @@
-import { getRandomNumber } from '../utils.js';
+import getRandomNumber from '../utils.js';
 import gameInit from '../index.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
+const isPrime = (num) => {
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) return false;
+  }
+  return true;
+};
+
 const primeGame = () => {
   const num = getRandomNumber(1, 20);
-
-  const getRightAnswer = () => {
-    let isSimply = true;
-
-    for (let i = 2; i < num; i += 1) {
-      if (num % i === 0) isSimply = false;
-    }
-    if (isSimply) return 'yes';
-    return 'no';
-  };
-
   const question = `Question: ${num}`;
-  const rightAnswer = getRightAnswer();
+  const rightAnswer = isPrime(num) ? 'yes' : 'no';
   return [question, rightAnswer];
 };
 
